@@ -11,7 +11,7 @@ import "@rainbow-me/rainbowkit/styles.css";
 
 const config = getDefaultConfig({
   appName: "V3rific",
-  projectId: process.env.WALLETCONNECT_PROJECT_ID || '', // ambil gratis dari walletconnect cloud
+  projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || '', 
   chains: [sepolia],
   transports: {
     [sepolia.id]: http(),
