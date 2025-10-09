@@ -188,7 +188,7 @@ export default function Page() {
 
       <footer className="max-w-6xl mx-auto px-6 py-8 text-slate-400">
         <div className="flex items-center justify-between">
-          <div>© {new Date().getFullYear()} Transparent Creative Supply Chain — Ilham</div>
+          <div>© {new Date().getFullYear()} Transparent Creative Supply Chain</div>
           <div className="text-sm">Built for hackathon • Demo (Sepolia)</div>
         </div>
       </footer>
