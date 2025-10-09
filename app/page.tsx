@@ -4,7 +4,7 @@
 import React from "react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { QRCodeCanvas } from "qrcode.react";
-import { FaCube, FaTruck, FaSearch } from "react-icons/fa";
+import { FaCube, FaTruck, FaSearch, FaClock, FaBolt, FaLock } from "react-icons/fa";
 
 export default function Page() {
   // sample metadata (static example)
@@ -120,7 +120,7 @@ export default function Page() {
 
       {/* FLOW */}
       <section id="flow" className="max-w-6xl mx-auto px-6 py-12">
-        <h3 className="text-2xl font-bold mb-6">How it works — 3 simple steps</h3>
+        <h3 className="text-4xl font-bold mb-6">How it works? 3 simple steps</h3>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="p-6 bg-white/5 rounded-xl border border-white/6">
@@ -173,11 +173,118 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Target User */}
+      <section className="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h3 className="text-4xl font-bold mb-4">Who is it for?</h3>
+          <p className="text-slate-400 mb-6 text-lg">
+            V3rific adapts to your product scale, from high-value collectibles 
+            to everyday consumer goods. Each use case ensures trust, authenticity, 
+            and transparency powered by blockchain.
+          </p>
+          <ul className="space-y-3 text-slate-300 text-lg">
+            <li>• <span className="font-semibold text-indigo-300">Luxury brands & limited products</span> → full traceability and digital ownership.</li>
+            <li>• <span className="font-semibold text-indigo-300">Manufacturers & distributors</span> → track product journey and status updates.</li>
+            <li>• <span className="font-semibold text-indigo-300">Mass producers & SMEs</span> → simple authenticity verification at low cost.</li>
+            <li>• <span className="font-semibold text-indigo-300">Consumers</span> → scan to confirm originality and product source.</li>
+          </ul>
+        </div>
+        <div className="bg-white/5 p-8 rounded-2xl border border-white/10">
+          <blockquote className="text-slate-300 italic text-lg">
+            “Before V3rific, tracking authenticity was difficult.
+            <p>Now our verification is automatic, transparent, and tamper-proof.”</p>
+          </blockquote>
+          <p className="text-slate-500 mt-3 text-sm">- Supply Chain Manager</p>
+        </div>
+      </section>
+
+
+      {/* BENEFITS */}
+      <section className="max-w-6xl mx-auto px-6 py-16">
+        <div className="text-center mb-12">
+          <h4 className="text-4xl md:text-4xl font-bold text-slate-100">
+            Why It Matters
+          </h4>
+          <p className="text-base text-slate-400 mt-2">
+            Empower your products with transparency, traceability, and trust. All powered by blockchain.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="bg-white/5 p-6 rounded-xl border border-white/10 text-center hover:bg-white/10 transition">
+            <div className="flex items-center justify-center text-indigo-400 text-3xl mb-3"><FaLock /></div>
+            <h4 className="font-semibold text-lg mb-2 text-slate-100">
+              Authenticity Guaranteed
+            </h4>
+            <p className="text-slate-400 text-base">
+              Each product is cryptographically linked to a blockchain record, ensuring proof of origin.
+            </p>
+          </div>
+
+          <div className="bg-white/5 p-6 rounded-xl border border-white/10 text-center hover:bg-white/10 transition">
+            <div className="flex items-center justify-center text-emerald-400 text-3xl mb-3"><FaClock /></div>
+            <h4 className="font-semibold text-lg mb-2 text-slate-100">
+              End-to-End Traceability
+            </h4>
+            <p className="text-slate-400 text-base">
+              Track your item's journey across producers, distributors, and retailers, all verifiable on-chain.
+            </p>
+          </div>
+
+          <div className="bg-white/5 p-6 rounded-xl border border-white/10 text-center hover:bg-white/10 transition">
+            <div className="flex items-center justify-center text-amber-400 text-3xl mb-3"><FaBolt /></div>
+            <h4 className="font-semibold text-lg mb-2 text-slate-100">
+              Effortless Verification
+            </h4>
+            <p className="text-slate-400 text-base">
+              Scan a QR, get instant metadata and history, no complex tools, no trust issues.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust */}
+      <section className="max-w-6xl mx-auto px-6 py-12 text-center">
+        <h3 className="text-4xl font-bold text-slate-100 mb-8">
+          Building Trust, One Product at a Time
+        </h3>
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="bg-gradient-to-b from-indigo-900/20 to-transparent rounded-2xl py-10 px-6 shadow-inner">
+            <h4 className="text-5xl font-extrabold text-indigo-400 mb-2">93K+</h4>
+            <p className="text-slate-200 text-lg font-medium">Verified Products</p>
+            <p className="text-slate-500 text-sm mt-2">Each item permanently stored and traceable on-chain.</p>
+          </div>
+          <div className="bg-gradient-to-b from-violet-900/20 to-transparent rounded-2xl py-10 px-6 shadow-inner">
+            <h4 className="text-5xl font-extrabold text-indigo-400 mb-2">1.3K+</h4>
+            <p className="text-slate-200 text-lg font-medium">Manufacturers Joined</p>
+            <p className="text-slate-500 text-sm mt-2">Trusted by Artisans, Startups, and Established brands worldwide.</p>
+          </div>
+          <div className="bg-gradient-to-b from-blue-900/20 to-transparent rounded-2xl py-10 px-6 shadow-inner">
+            <h4 className="text-5xl font-extrabold text-indigo-400 mb-2">13</h4>
+            <p className="text-slate-200 text-lg font-medium">Industries Connected</p>
+            <p className="text-slate-500 text-sm mt-2">Blockchain bridges every supply chain.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Slogan */}
+      <section className="max-w-6xl mx-auto px-6 py-12 text-center">
+        <h4 className="text-4xl md:text-4xl font-bold text-slate-100 tracking-wide">
+          Verify, Retrieve, Fidelity, <span className="text-indigo-400">Safe in Blockchain</span>
+        </h4>
+        <p className="text-slate-400 text-lg mt-4">
+          Every product tells its own verifiable story, let your product tell its own verifiable story.
+        </p>
+        <p className="text-slate-400 text-lg mt-1">
+          Secure, Immutable, and Transparent.
+        </p>
+      </section>
+
       {/* CTA */}
       <section className="max-w-6xl mx-auto px-6 py-12">
         <div className="bg-gradient-to-r from-indigo-700/30 to-violet-700/20 p-8 rounded-2xl border border-white/6 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <h4 className="text-xl font-bold">Ready to make your products verifiable?</h4>
+            <h4 className="text-xl font-bold">Make your product verifiable today!</h4>
             <p className="text-slate-300">Start by connecting your wallet and registering a sample product. Sepolia testnet friendly.</p>
           </div>
           <div>
@@ -186,7 +293,94 @@ export default function Page() {
         </div>
       </section>
 
-      <footer className="max-w-6xl mx-auto px-6 py-8 text-slate-400">
+      {/* FAQ */}
+      <section className="max-w-6xl mx-auto px-6 py-12">
+        <h3 className="text-3xl font-bold text-slate-100 mb-6 text-center">Frequently Asked Questions</h3>
+        <div className="space-y-6 text-slate-300">
+          <details className="bg-white/5 p-4 rounded-lg border border-white/10">
+            <summary className="font-semibold text-lg cursor-pointer">Do I need crypto knowledge to use this?</summary>
+            <p className="mt-2 text-slate-400">Not necessarily. The platform handles wallet connections and verification automatically, you just focus on your product.</p>
+          </details>
+          <details className="bg-white/5 p-4 rounded-lg border border-white/10">
+            <summary className="font-semibold text-lg cursor-pointer">Can it scale for mass production?</summary>
+            <p className="mt-2 text-slate-400">Yes, batch provenance and QR integration allow thousands of products to be verified instantly.</p>
+          </details>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section className="max-w-7xl mx-auto px-6 py-12 text-center">
+        <h4 className="text-3xl font-bold text-slate-100 mb-4">Got an idea or feedback?</h4>
+        <p className="text-slate-400 mb-8">Help us make product verification smarter. Reach out or collaborate with the team.</p>
+        <a
+          href="mailto:team@v3rific.io"
+          className="inline-block bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl transition"
+        >
+          Contact Us
+        </a>
+      </section>
+
+      {/* Big Vision */}
+      <section className="max-w-7xl mx-auto px-6 py-12 mt-15 border-t border-white/10">
+        <div className="flex flex-col md:flex-row md:justify-between gap-5">
+          {/* Left side */}
+          <div className="md:w-1/2">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-400 flex items-center justify-center font-extrabold text-slate-100 shadow-lg">
+                V3
+              </div>
+              <span className="text-slate-400 font-semibold tracking-wide uppercase text-sm">
+                Vision
+              </span>
+            </div>
+
+            <h3 className="text-4xl font-bold text-slate-100 mb-5">
+              Towards a Transparent Supply Future
+            </h3>
+            <p className="text-slate-400 text-lg mb-5 leading-relaxed">
+              We’re building a network where every product can be verified, every story retrieved, and every record stays true. Secured by blockchain fidelity.
+            </p>
+          </div>
+
+          {/* Right side */}
+          <div className="md:w-1/2 grid sm:grid-cols-2 gap-8 text-left">
+            <div>
+              <h4 className="text-slate-100 font-semibold mb-3">For Producers</h4>
+              <ul className="space-y-2 text-slate-400 text-sm">
+                <li>• Register product metadata</li>
+                <li>• Link items to Blockchain & IPFS</li>
+                <li>• Create verifiable digital twins</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-slate-100 font-semibold mb-3">For Consumers</h4>
+              <ul className="space-y-2 text-slate-400 text-sm">
+                <li>• Verify authenticity instantly</li>
+                <li>• Claim ownership on-chain</li>
+                <li>• Access transparent product history</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-slate-100 font-semibold mb-3">For Distributors</h4>
+              <ul className="space-y-2 text-slate-400 text-sm">
+                <li>• Update product status securely</li>
+                <li>• Record transfers with proof</li>
+                <li>• Simplify supply verification</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-slate-100 font-semibold mb-3">For the Future</h4>
+              <ul className="space-y-2 text-slate-400 text-sm">
+                <li>• Universal product provenance</li>
+                <li>• Interoperable identity for goods</li>
+                <li>• Global standard of trust</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer className="max-w-7xl mx-auto px-6 py-6 text-slate-400">
         <div className="flex items-center justify-between">
           <div>© {new Date().getFullYear()} Transparent Creative Supply Chain</div>
           <div className="text-sm">Built for hackathon • Demo (Sepolia)</div>
