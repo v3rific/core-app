@@ -2,6 +2,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { QRCodeCanvas } from "qrcode.react";
 import { FaCube, FaTruck, FaSearch, FaClock, FaBolt, FaLock } from "react-icons/fa";
@@ -49,9 +50,12 @@ export default function Page() {
             </p>
 
             <div className="flex flex-wrap gap-3">
-              <button className="px-5 py-3 bg-indigo-500 rounded-lg font-semibold shadow hover:brightness-105 transition">
+              <Link
+                href="/producer"
+                className="px-5 py-3 bg-indigo-500 rounded-lg font-semibold shadow hover:brightness-105 transition"
+              >
                 Connect & Register Product
-              </button>
+              </Link>
               <a
                 className="px-5 py-3 border border-slate-700 rounded-lg text-slate-300 hover:bg-white/5 transition"
                 href="#flow"
