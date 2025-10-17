@@ -1,11 +1,13 @@
 // app/page.tsx
 "use client";
 
+import { motion } from "framer-motion";
 import React from "react";
 import Link from "next/link";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { QRCodeCanvas } from "qrcode.react";
-import { FaCube, FaTruck, FaSearch, FaClock, FaBolt, FaLock } from "react-icons/fa";
+import { FaCube, FaTruck, FaSearch, FaClock, FaBolt, FaLock, FaChevronRight } from "react-icons/fa";
+import { Navbar } from "./navbar";
 
 export default function Page() {
   // sample metadata (static example)
@@ -21,8 +23,13 @@ export default function Page() {
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-black text-slate-100">
+
+      {/* Floating Navbar */}
+      <Navbar />
+
+      {/* Header */}
       <header className="max-w-6xl mx-auto px-6 py-8 flex items-center justify-between">
-        <div className="flex items-center gap-4">
+        <div className="mt-17 flex items-center gap-4">
           <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-400 flex items-center justify-center shadow-lg">
             <span className="font-extrabold">V3</span>
           </div>
@@ -32,7 +39,7 @@ export default function Page() {
           </div>
         </div>
 
-        <div>
+        <div className="mt-17">
           <ConnectButton />
         </div>
       </header>
@@ -123,7 +130,7 @@ export default function Page() {
       </section>
 
       {/* FLOW */}
-      <section id="flow" className="max-w-6xl mx-auto px-6 py-12">
+      <section id="flow" className="scroll-mt-11 max-w-6xl mx-auto px-6 py-12">
         <h3 className="text-4xl font-bold mb-6">How it works? 3 simple steps</h3>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -178,7 +185,7 @@ export default function Page() {
       </section>
 
       {/* Target User */}
-      <section className="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <section className="scroll-mt-32 max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div>
           <h3 className="text-4xl font-bold mb-4">Who is it for?</h3>
           <p className="text-slate-400 mb-6 text-lg">
@@ -204,7 +211,7 @@ export default function Page() {
 
 
       {/* BENEFITS */}
-      <section className="max-w-6xl mx-auto px-6 py-16">
+      <section id="features" className="scroll-mt-11 max-w-6xl mx-auto px-6 py-12">
         <div className="text-center mb-12">
           <h4 className="text-4xl md:text-4xl font-bold text-slate-100">
             Why It Matters
@@ -248,7 +255,7 @@ export default function Page() {
       </section>
 
       {/* Trust */}
-      <section className="max-w-6xl mx-auto px-6 py-12 text-center">
+      <section className="scroll-mt-32 max-w-6xl mx-auto px-6 py-12 text-center">
         <h3 className="text-4xl font-bold text-slate-100 mb-8">
           Building Trust, One Product at a Time
         </h3>
@@ -273,15 +280,39 @@ export default function Page() {
 
       {/* Slogan */}
       <section className="max-w-6xl mx-auto px-6 py-12 text-center">
-        <h4 className="text-4xl md:text-4xl font-bold text-slate-100 tracking-wide">
-          Verify, Retrieve, Fidelity, <span className="text-indigo-400">Safe in Blockchain</span>
-        </h4>
-        <p className="text-slate-400 text-lg mt-4">
+        <motion.h4
+          initial={{ opacity: 0, y: 30, backgroundPosition: "0% 50%" }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            backgroundPosition: "100% 50%",
+            transition: { duration: 1.2, ease: "easeOut" },
+          }}
+          viewport={{ once: true }}
+          className="text-4xl text-slate-100 md:text-4xl font-bold tracking-wide"
+        >
+          Verify, Retrieve, Fidelity, <span className="text-indigo-400">Secured by Blockchain</span>
+        </motion.h4>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 1 }}
+          viewport={{ once: true }}
+          className="text-slate-400 text-lg mt-4"
+        >
           Every product tells its own verifiable story, let your product tell its own verifiable story.
-        </p>
-        <p className="text-slate-400 text-lg mt-1">
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 1 }}
+          viewport={{ once: true }}
+          className="text-slate-400 text-lg mt-1"
+        >
           Secure, Immutable, and Transparent.
-        </p>
+        </motion.p>
       </section>
 
       {/* CTA */}
@@ -298,7 +329,7 @@ export default function Page() {
       </section>
 
       {/* FAQ */}
-      <section className="max-w-6xl mx-auto px-6 py-12">
+      <section id="faq" className="scroll-mt-11 max-w-6xl mx-auto px-6 py-12">
         <h3 className="text-3xl font-bold text-slate-100 mb-6 text-center">Frequently Asked Questions</h3>
         <div className="space-y-6 text-slate-300">
           <details className="bg-white/5 p-4 rounded-lg border border-white/10">
@@ -325,7 +356,7 @@ export default function Page() {
       </section>
 
       {/* Big Vision */}
-      <section className="max-w-7xl mx-auto px-6 py-12 mt-15 border-t border-white/10">
+      <section id="vision" className="scroll-mt-5 max-w-7xl mx-auto px-6 py-12 mt-15 border-t border-white/10">
         <div className="flex flex-col md:flex-row md:justify-between gap-5">
           {/* Left side */}
           <div className="md:w-1/2">
