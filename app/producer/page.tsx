@@ -9,6 +9,7 @@ import {
   useWaitForTransactionReceipt,
   useWriteContract,
 } from "wagmi";
+import { sepolia } from "wagmi/chains";
 import type { BaseError } from "viem";
 import { FaArrowLeft } from "react-icons/fa";
 
@@ -174,8 +175,18 @@ export default function ProducerPage() {
   const [feedback, setFeedback] = useState<FeedbackState>(null);
   const [txHash, setTxHash] = useState<`0x${string}` | undefined>();
   const [resetSignal, setResetSignal] = useState(0);
+  const [isHydrated, setIsHydrated] = useState(false);
 
-  const producerArgs = useMemo(() => (address ? ([address] as [`0x${string}`]) : undefined), [address]);
+  useEffect(() => {
+    setIsHydrated(true);
+  }, []);
+
+  const isConnectionReady = isHydrated && isConnected;
+
+  const producerArgs = useMemo(
+    () => (isConnectionReady && address ? ([address] as [`0x${string}`]) : undefined),
+    [address, isConnectionReady]
+  );
 
   const {
     data: rawProducer,
@@ -187,8 +198,9 @@ export default function ProducerPage() {
     abi: producerRegistryAbi,
     functionName: "getProducer",
     args: producerArgs,
+    chainId: sepolia.id,
     query: {
-      enabled: Boolean(isConnected && address),
+      enabled: Boolean(isConnectionReady && address),
       refetchOnWindowFocus: false,
     },
   });
@@ -199,6 +211,7 @@ export default function ProducerPage() {
     error: confirmationError,
   } = useWaitForTransactionReceipt({
     hash: txHash,
+    chainId: sepolia.id,
     query: {
       enabled: Boolean(txHash),
     },
@@ -277,6 +290,7 @@ export default function ProducerPage() {
         address: registryAddress,
         abi: producerRegistryAbi,
         functionName: "registerProducer",
+        chainId: sepolia.id,
         args: [values.name, values.description, values.website, values.contact, values.country],
       });
       setTxHash(hash);
@@ -293,7 +307,7 @@ export default function ProducerPage() {
   const isRegistering = isWriting || isConfirming;
 
   const renderContent = () => {
-    if (!isConnected) {
+    if (!isConnectionReady) {
       return <ConnectSection />;
     }
 
