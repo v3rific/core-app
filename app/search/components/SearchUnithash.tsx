@@ -8,9 +8,22 @@ interface SearchUnithashProps {
   searchQuery: string;
   searching: string;
   setSearchQuery: (value: string) => void;
+  errorMessage?: string | null;
 }
 
-export function SearchUnithash({ onSearch, searchResult, searchQuery, searching, setSearchQuery } : SearchUnithashProps) {
+export function SearchUnithash({
+  onSearch,
+  searchResult,
+  searchQuery,
+  searching,
+  setSearchQuery,
+  errorMessage,
+}: SearchUnithashProps) {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const sanitized = event.target.value.replace(/[^0-9a-z]/gi, "").slice(0, 10).toLowerCase();
+    setSearchQuery(sanitized);
+  };
+
   return (
     <motion.section
       initial={{ opacity: 0, y: 40 }}
@@ -34,10 +47,10 @@ export function SearchUnithash({ onSearch, searchResult, searchQuery, searching,
           <input
             id="unithash"
             type="text"
-            value={searchQuery}
-            onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)}
+            value={searchQuery.toUpperCase()}
+            onChange={handleChange}
             disabled={searching === 'loading'}
-            placeholder="Enter UnitHash (e.g. QmX...123)"
+            placeholder="Enter unitshash (e.g. preview00)"
             autoComplete="off"
             className="w-full px-5 py-3 text-white bg-white/10 placeholder-gray-400 rounded-full border border-white/10
               focus:ring-2 focus:ring-indigo-400/40 focus:border-indigo-400/40 focus:outline-none transition-all"
@@ -62,6 +75,10 @@ export function SearchUnithash({ onSearch, searchResult, searchQuery, searching,
                 </>
             )}
           </button>
+
+          {errorMessage && (
+            <p className="text-sm text-rose-300">{errorMessage}</p>
+          )}
         </form>
       </div>
     </motion.section>
