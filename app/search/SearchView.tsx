@@ -8,6 +8,7 @@ import { sepolia } from "wagmi/chains";
 import type { BaseError } from "viem";
 import { FaSearch } from "react-icons/fa";
 import { Navbar } from "../navbar";
+import { Header } from "../header";
 import { SearchUnithash } from "./components/SearchUnithash";
 import { v3rificAbi } from "@/lib/abi/v3rific";
 import { producerRegistryAbi } from "@/lib/abi/producerRegistry";
@@ -251,21 +252,7 @@ export function SearchView({ initialUnitshash }: SearchViewProps) {
     <main className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-black text-slate-100">
       <Navbar />
 
-      <header className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-8">
-        <div className="mt-6 flex items-center gap-4">
-          <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500 to-violet-400 font-extrabold shadow-lg">
-            V3
-          </div>
-          <div>
-            <h1 className="text-xl font-semibold">Transparent Creative Supply Chain</h1>
-            <p className="text-sm text-slate-300">Anti-counterfeit tracking for creative goods • Web3 + IPFS</p>
-          </div>
-        </div>
-
-        <div className="mt-6">
-          <ConnectButton />
-        </div>
-      </header>
+      <Header />
 
       <SearchUnithash
         onSearch={handleSubmit}

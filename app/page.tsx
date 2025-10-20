@@ -6,8 +6,9 @@ import React from "react";
 import Link from "next/link";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { QRCodeCanvas } from "qrcode.react";
-import { FaCube, FaTruck, FaSearch, FaClock, FaBolt, FaLock, FaChevronRight } from "react-icons/fa";
+import { FaCube, FaTruck, FaSearch, FaClock, FaBolt, FaLock, FaArrowRight, FaMailBulk } from "react-icons/fa";
 import { Navbar } from "./navbar";
+import { Header } from "./header";
 
 export default function Page() {
   // sample metadata (static example)
@@ -28,21 +29,7 @@ export default function Page() {
       <Navbar />
 
       {/* Header */}
-      <header className="max-w-6xl mx-auto px-6 py-8 flex items-center justify-between">
-        <div className="mt-17 flex items-center gap-4">
-          <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-400 flex items-center justify-center shadow-lg">
-            <span className="font-extrabold">V3</span>
-          </div>
-          <div>
-            <h1 className="text-xl font-semibold">Transparent Creative Supply Chain</h1>
-            <p className="text-sm text-slate-300">Anti-counterfeit tracking for creative goods • Web3 + IPFS</p>
-          </div>
-        </div>
-
-        <div className="mt-17">
-          <ConnectButton />
-        </div>
-      </header>
+      <Header />
 
       {/* HERO */}
       <section className="max-w-6xl mx-auto px-6 py-12">
@@ -344,16 +331,36 @@ export default function Page() {
       </section>
 
       {/* Contact */}
-      <section className="max-w-7xl mx-auto px-6 py-12 text-center">
-        <h4 className="text-3xl font-bold text-slate-100 mb-4">Got an idea or feedback?</h4>
-        <p className="text-slate-400 mb-8">Help us make product verification smarter. Reach out or collaborate with the team.</p>
-        <a
-          href="mailto:team@v3rific.io"
-          className="inline-block bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl transition"
-        >
-          Contact Us
-        </a>
-      </section>
+      <section className="max-w-7xl mx-auto px-6 py-16 text-center">
+      <div className="max-w-2xl mx-auto">
+        <h4 className="text-3xl font-bold text-slate-100 mb-4">
+          Have Questions?
+        </h4>
+        <p className="text-slate-400 mb-8">
+          We'd love to hear from you. Whether it's feedback, partnership opportunities, or just a quick question.
+        </p>
+        
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          {/* Primary: Navigate to Contact Page */}
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-xl transition-all hover:scale-105 font-medium"
+          >
+            Get in Touch
+            <FaArrowRight className="w-4 h-4" />
+          </Link>
+          
+          {/* Secondary: Quick email (for urgent) */}
+          <a
+            href="mailto:team@v3rific.io"
+            className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white px-8 py-3 rounded-xl border border-white/20 transition-all font-medium"
+          >
+            <FaMailBulk className="w-4 h-4" />
+            team@v3rific.io
+          </a>
+        </div>
+      </div>
+    </section>
 
       {/* Big Vision */}
       <section id="vision" className="scroll-mt-5 max-w-7xl mx-auto px-6 py-12 mt-15 border-t border-white/10">
