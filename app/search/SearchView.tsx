@@ -252,7 +252,7 @@ export function SearchView({ initialUnitshash }: SearchViewProps) {
       <Navbar />
 
       <header className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-8">
-        <div className="mt-6 flex items-center gap-4">
+        <div className="mt-17 flex items-center gap-4">
           <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500 to-violet-400 font-extrabold shadow-lg">
             V3
           </div>
@@ -262,7 +262,7 @@ export function SearchView({ initialUnitshash }: SearchViewProps) {
           </div>
         </div>
 
-        <div className="mt-6">
+        <div className="mt-17">
           <ConnectButton />
         </div>
       </header>
