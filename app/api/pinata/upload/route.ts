@@ -52,24 +52,24 @@ export async function POST(request: NextRequest) {
   }
 }
 
-function buildPinataHeaders() {
+function buildPinataHeaders(): Headers {
+  const headers = new Headers({
+    "Content-Type": "application/json",
+  });
+
   const jwt = process.env.PINATA_JWT;
   if (jwt) {
-    return {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${jwt}`,
-    };
+    headers.set("Authorization", `Bearer ${jwt}`);
+    return headers;
   }
 
   const apiKey = process.env.PINATA_API_KEY;
   const apiSecret = process.env.PINATA_API_SECRET;
 
   if (apiKey && apiSecret) {
-    return {
-      "Content-Type": "application/json",
-      pinata_api_key: apiKey,
-      pinata_secret_api_key: apiSecret,
-    };
+    headers.set("pinata_api_key", apiKey);
+    headers.set("pinata_secret_api_key", apiSecret);
+    return headers;
   }
 
   throw new Error("Pinata credentials not configured.");
