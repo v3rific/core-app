@@ -52,14 +52,13 @@ export async function POST(request: NextRequest) {
   }
 }
 
-function buildPinataHeaders(): Headers {
-  const headers = new Headers({
+function buildPinataHeaders(): Record<string, string> {
+  const headers: Record<string, string> = {
     "Content-Type": "application/json",
-  });
-
+  };
   const jwt = process.env.PINATA_JWT;
   if (jwt) {
-    headers.set("Authorization", `Bearer ${jwt}`);
+    headers.Authorization = `Bearer ${jwt}`;
     return headers;
   }
 
@@ -67,8 +66,8 @@ function buildPinataHeaders(): Headers {
   const apiSecret = process.env.PINATA_API_SECRET;
 
   if (apiKey && apiSecret) {
-    headers.set("pinata_api_key", apiKey);
-    headers.set("pinata_secret_api_key", apiSecret);
+    headers.pinata_api_key = apiKey;
+    headers.pinata_secret_api_key = apiSecret;
     return headers;
   }
 
